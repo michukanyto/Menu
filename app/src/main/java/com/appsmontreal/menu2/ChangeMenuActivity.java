@@ -12,11 +12,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import model.Sound;
+
 public class ChangeMenuActivity extends AppCompatActivity implements View.OnClickListener {
     EditText editText;
     Button buttonOk;
     Intent intentReturn;
     String strData;
+    Sound sound;
 
 
     @Override
@@ -33,6 +36,7 @@ public class ChangeMenuActivity extends AppCompatActivity implements View.OnClic
         buttonOk = (Button)findViewById(R.id.buttonOk);
         buttonOk.setOnClickListener(this);
         intentReturn = new Intent(this,MainActivity.class);
+        sound =new Sound(this);
     }
 
     public void returnResult(View v){
@@ -51,7 +55,7 @@ public class ChangeMenuActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-
+        sound.soundGoBack();
         switch (v.getId()){
             case R.id.buttonOk:
                 returnResult(v);
